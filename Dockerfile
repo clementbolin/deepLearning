@@ -7,7 +7,8 @@ WORKDIR /deepLearningGaz
 
 # Install python
 RUN apt update -y && apt-get install python3-dev python3-pip -y
-RUN apt-get install git
+RUN apt-get install git -y
+RUN pip3 install --upgrade pip3
 
 # Install dependencies
 RUN pip3 install Theano
@@ -18,3 +19,5 @@ RUN pip3 install -U scikit-learn
 
 COPY . .
 EXPOSE 8080
+
+CMD [ "python3", "main.py"]

@@ -57,3 +57,54 @@ classifier.fit(X_train, y_train, batch_size=10, epochs=numberEpoch)
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
+
+# Making the confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+precision = (cm[0][0] + cm[1][1]) / (cm[0][1] + cm[0][0] + cm[1][0] + cm[1][1]) * 100
+print("precision : " + str(precision) + "%")
+
+# Predicting a single new observation
+"""Predict if the customer with the following informations will leave the bank:
+Geography: France
+Credit Score: 600
+Gender: Male
+Age: 40
+Tenure: 3
+Balance: 60000
+Number of Products: 2
+Has Credit Card: Yes
+Is Active Member: Yes
+Estimated Salary: 50000"""
+
+Xnew = pd.DataFrame(data={
+        'CreditScore': [600], 
+        'Geography': ['France'], 
+        'Gender': ['Male'],
+        'Age': [40],
+        'Tenure': [3],
+        'Balance': [60000],
+        'NumOfProducts': [2],
+        'HasCrCard': [1],
+        'IsActiveMember': [1],
+        'EstimatedSalary': [50000]})
+Xnew = preprocess.transform(Xnew)
+Xnew = np.delete(Xnew, [0,3], 1)
+new_prediction = classifier.predict(Xnew)
+new_prediction = (new_prediction > 0.5)
+print("""Predict if the customer with the following informations will leave the bank:
+Geography: France
+Credit Score: 600
+Gender: Male
+Age: 40
+Tenure: 3
+Balance: 60000
+Number of Products: 2
+Has Credit Card: Yes
+Is Active Member: Yes
+Estimated Salary: 50000""")
+if new_prediction == False:
+    new_prediction = "he stay in bank"
+else:
+    new_prediction = "he leave bank"
+print("prediction result : " + str(new_prediction))
