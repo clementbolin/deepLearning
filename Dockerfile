@@ -7,9 +7,13 @@ WORKDIR /deepLearningGaz
 
 # Install python
 RUN apt update -y && apt-get install python3-dev python3-pip -y
+RUN apt-get install git
+
 # Install dependencies
 RUN pip3 install Theano
 RUN pip3 install keras
+RUN pip3 install matplotlib
+RUN pip3 install pandas
 
 COPY . .
 EXPOSE 8080
