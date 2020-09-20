@@ -14,6 +14,7 @@ RUN pip3 install Theano
 RUN pip3 install keras
 RUN pip3 install matplotlib
 RUN pip3 install pandas
+RUN pip3 install -U scikit-learn
 
 COPY . .
 EXPOSE 8080
