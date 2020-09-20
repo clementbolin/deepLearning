@@ -7,7 +7,7 @@ WORKDIR /deepLearningGaz
 
 # Install python
 RUN apt update -y && apt-get install python3-dev python3-pip -y
-RUN apt-get install git -y
+# RUN apt-get install git -y
 RUN pip3 install --upgrade pip
 
 # Install dependencies
