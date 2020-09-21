@@ -31,7 +31,9 @@ for my hidden layer I use Redresseur activate function, and for output layer I c
 #### Docker
 
 [install docker for Linux](https://docs.docker.com/engine/install/ubuntu/)
+
 [install docker for Mac](https://docs.docker.com/docker-for-mac/install/)
+
 [install docker for windows](https://docs.docker.com/docker-for-windows/install/)
 
     git clone https://github.com/ClementBolin/deepLearning
